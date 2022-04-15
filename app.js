@@ -42,14 +42,26 @@ const makeUsers = (data)=>{
 		const tdEmail  = document.createElement('td')
 		const tdPhone  = document.createElement('td')
 		const tdWebsite  = document.createElement('td')
+
 		const table = document.getElementById('table')
+		
+
+
+		tr.classList.add('table-row')
+		tdName.classList.add('table-cell')
+		tdUserName.classList.add('table-cell')
+		tdEmail.classList.add('table-cell')
+		tdPhone.classList.add('table-cell')
+		tdWebsite.classList.add('table-cell')
+		button.classList.add('button')
+		
 
 		tdName.innerText = element.name
 		tdUserName.innerText = element.username
 		tdEmail.innerText = element.email
-		
 		tdPhone.innerText = element.phone
 		tdWebsite.innerText = element.website
+
 		button.appendChild(tdName)
 		tr.appendChild(button)
 		tr.appendChild(tdUserName)
@@ -61,13 +73,13 @@ const makeUsers = (data)=>{
 		button.value = element.id
 
 		button.addEventListener('click',() =>{
-			getPost(parseInt(button.value))
+			getPost(parseInt(button.value, element.name))
 		})
 	});
 
 } 
 
-const getPost = (value) =>{
+const getPost = (value, userName) =>{
 	const posts = document.getElementById('post-section')
 	fetch(`${api}posts`)
 	.then(res=>{
@@ -83,6 +95,10 @@ const getPost = (value) =>{
 			const div = document.createElement('div')
 			const h3 = document.createElement('h3')
 			const p = document.createElement('p')
+
+
+			div.classList.add('post')
+			
 			
 			h3.innerText = element.title
 			p.innerText = element.body
@@ -95,14 +111,11 @@ const getPost = (value) =>{
 		})
 
 
-		console.log(result)
 	})
 	.catch(err=>{
 		console.log(err)
 	})
 	
-
-	console.log(value)
 
 }
 
