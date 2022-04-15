@@ -1,15 +1,6 @@
 const api = 'https://jsonplaceholder.typicode.com/'
 const waiting = document.getElementById('waiting')
 
-let users =[ {
-	name: 'luis',
-	username: 'luismi',
-	email: 'luismi@gmail.com',
-	address: 'miami, fl',
-	phone: 1234556789,
-	website: 'luismi.com'
-
-}]
 
 const getUsers = () =>{
 
